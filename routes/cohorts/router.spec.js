@@ -18,7 +18,7 @@ describe('cohorts router', () => {
         it("should return cohorts as the router value", async function() {
             const res = await request(server).get("/api/cohorts");
             
-            expect(res.body.router).toBe('cohorts');
+            expect(Array.isArray(res.body)).toBe(true);
         });
     })
 })
