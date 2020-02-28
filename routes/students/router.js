@@ -1,5 +1,5 @@
-const router = require('express').Router();
 const Students = require('./model.js');
+const router = require('express').Router();
 
 router.get('/', (req, res) => {
   Students.find()
@@ -15,6 +15,8 @@ router.post('/', (req, res) => {
     
     Students.add(student)
     .then(saved => {
+      console.log('saved', saved);
+      
       res.status(201).json(saved);
     })
     .catch((message, code, stack, name) => {
@@ -33,6 +35,6 @@ router.delete('/:id', (req, res) => {
         console.log(error);
         res.status(500).json({ error: "failed to remove the student" });
       });
-  });
+});
 
 module.exports = router;

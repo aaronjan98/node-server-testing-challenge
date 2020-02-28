@@ -17,7 +17,7 @@ function findBy(filter) {
 }
 
 async function add(student) {
-  return db('students').insert(student);
+  return db('students').insert(student, 'id');
 }
 
 function findById(id) {
